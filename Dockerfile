@@ -9,7 +9,8 @@ RUN apt-get update -y \
 COPY builder/requirements.txt /requirements.txt
 RUN --mount=type=cache,target=/root/.cache/pip \
     python3 -m pip install --upgrade pip && \
-    python3 -m pip install --upgrade -r /requirements.txt
+    python3 -m pip install --upgrade -r /requirements.txt && \
+    python3 -m pip install --upgrade transformers
 
 # Setup for Option 2: Building the Image with the Model included
 ARG MODEL_NAME=""
